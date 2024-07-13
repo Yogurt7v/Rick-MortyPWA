@@ -1,0 +1,263 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+* {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-image: url("./assets/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+
+
+.active {
+  color: rgb(5, 154, 20);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+
+  li {
+    margin-right: 10px; 
+  }
+}
+
+.items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  width: fit-content;
+  height: 50px;
+}
+
+.card__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #40b5cb;
+  -webkit-text-stroke: 1px #47e215;
+  gap: 10px;
+  margin: 20px auto;
+  background-color: rgba(0, 0, 0, 0.654);
+  border-radius: 10px;
+  box-shadow: 0px 5px 41px 13px rgba(8, 204, 48, 0.2);
+  padding: 30px 50px;
+}
+
+.card__wrapper h1 {
+  font-size: 30px;
+}
+
+.card {
+  display: flex;
+  gap: 10px;
+}
+
+.card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card__wrapper img {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+}
+
+button {
+  cursor: pointer;
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.button__wrapper {
+  position: sticky;
+  top: 10px;
+  gap: 50px;
+
+  display: flex;
+  justify-content: space-around;
+}
+
+.navlink {
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 22px;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  background-image: url("./assets/Rick_and_Morty.svg.png");
+  background-repeat: no-repeat;
+  height: 100px;
+  margin-left: 50px;
+}
+
+.container {
+  margin: 20px 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  margin: 30px 50px;
+}
+
+section span {
+  color: #40b5cb;
+}
+
+.AuthStatus {
+  margin: 30px 50px 0 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  font-size: 20px;
+  color: #47e215;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+  margin: 20px 50px;
+  padding: 20px 50px;
+  background-color: rgba(0, 0, 0, 0.476);
+  box-shadow: 0px 5px 41px 13px rgba(8, 204, 48, 0.2);
+  color: #40b5cb;
+  font-size: 20px;
+}
+
+.nav a:first {
+  margin-right: 150px;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #40b5cb;
+  -webkit-text-stroke: 1px #47e215;
+  font-size: 20px;
+  margin: 20px 50px;
+  box-shadow: 0px 5px 41px 13px rgba(8, 204, 48, 0.2);
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.654);
+  padding: 20px 50px;
+}
+
+.home span{
+  overflow-wrap: break-word
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #47e215;
+  font-size: 20px;
+  margin: 20px 50px;
+  box-shadow: 0px 5px 41px 13px rgba(8, 204, 48, 0.2);
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.654);
+  padding: 20px 50px;
+}
+
+.container__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #47e215;
+  font-size: 20px;
+  margin: 20px 50px;
+  box-shadow: 0px 5px 41px 13px rgba(8, 204, 48, 0.2);
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.654);
+  padding: 20px 50px;
+  gap: 20px;
+  height: fit-content;
+}
+
+.form__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #47e215;
+  font-size: 20px;
+  margin: 200px auto;
+  box-shadow: 0px 5px 41px 13px rgba(8, 204, 48, 0.2);
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.781);
+  padding: 20px 50px;
+  gap: 20px;
+  height: fit-content;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .nav button {
+    min-width: 30%;
+  }
+  .nav nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  ul {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  li button {
+    width: 100%;
+  }
+
+  h2{
+    font-size: 20px
+  }
+
+  .home{
+    font-size: 14px
+  }
+
+  .container{
+    margin: 0 0
+  }
+  .logo{
+    margin-top: 15px;
+  }
+}
