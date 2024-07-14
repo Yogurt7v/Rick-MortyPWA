@@ -12,11 +12,11 @@ export function SingleHero() {
       <h1>{result.name}</h1>
       <div className="card">
           <img src={result.image} alt={result.name} />
-          {result.type && <p>Type: {result.type}</p>}
         <div className="card__info">
           <p>Status: {result.status}</p>
           <p>Species: {result.species}</p>
           <p>Gender: {result.gender}</p>
+          {result.type && <p>Type: {result.type}</p>}
         </div>
       </div>
       <p>Created: {result.created}</p>
