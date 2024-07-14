@@ -123,9 +123,6 @@ section {
   margin: 30px 50px;
 }
 
-section span {
-  color: #40b5cb;
-}
 
 .AuthStatus {
   margin: 30px 50px 0 50px;
@@ -168,7 +165,8 @@ section span {
 }
 
 .home span{
-  overflow-wrap: break-word
+  overflow-wrap: break-word;
+  text-align: justify;
 }
 
 .category {
