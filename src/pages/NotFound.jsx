@@ -13,7 +13,7 @@ export function NotFound() {
     }, [])
 
     return (
-        <div>
+        <div className="card__wrapper">
             <h1>Page Not Found</h1>
         </div>
     );

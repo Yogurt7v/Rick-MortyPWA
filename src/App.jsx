@@ -11,7 +11,11 @@ const Home = lazy(() =>
   import("./pages/Home").then((module) => ({ default: module.Home }))
 );
 
-const MainLayout = lazy(() => import("./components/MainLayout").then((module) => ({ default: module.MainLayout })));
+const MainLayout = lazy(() =>
+  import("./components/MainLayout").then((module) => ({
+    default: module.MainLayout,
+  }))
+);
 const Categories = lazy(() =>
   import("./pages/Categories").then((module) => ({
     default: module.Categories,
@@ -63,99 +67,99 @@ const SingleLocation = lazy(() =>
 );
 
 function App() {
-  return (  
-  <MantineProvider>
-    <BrowserRouter>
-      <AuthProvider>
-        <Routes>
-          <Route element={<MainLayout/>}>
-          <Route path="/" element={<NavMenu />}>
-            <Route index element={<Home />} />
-            <Route path="/categories">
-              <Route index element={<Categories />} />
-              <Route path="heroes">
-                <Route
-                  index
-                  element={
-                    <ErrorBoundary>
-                      <Heroes />
-                    </ErrorBoundary>
-                  }
-                />
-                <Route
-                  path=":id"
-                  element={
-                    <PrivateRoute>
-                      <ErrorBoundary>
-                        <SingleHero />
-                      </ErrorBoundary>
-                    </PrivateRoute>
-                  }
-                />
-              </Route>
+  return (
+    <MantineProvider>
+      <BrowserRouter>
+        <AuthProvider>
+          <Routes>
+            <Route element={<MainLayout />}>
+              <Route path="/" element={<NavMenu />}>
+                <Route index element={<Home />} />
+                <Route path="/categories">
+                  <Route index element={<Categories />} />
+                  <Route path="heroes">
+                    <Route
+                      index
+                      element={
+                        <ErrorBoundary>
+                          <Heroes />
+                        </ErrorBoundary>
+                      }
+                    />
+                    <Route
+                      path=":id"
+                      element={
+                        <PrivateRoute>
+                          <ErrorBoundary>
+                            <SingleHero />
+                          </ErrorBoundary>
+                        </PrivateRoute>
+                      }
+                    />
+                  </Route>
 
-              <Route path="episodes">
-                <Route
-                  index
-                  element={
-                    <ErrorBoundary>
-                      <Episodes />
-                    </ErrorBoundary>
-                  }
-                />
-                <Route
-                  path=":id"
-                  element={
-                    <PrivateRoute>
-                      <ErrorBoundary>
-                        <SingleEpisode />
-                      </ErrorBoundary>
-                    </PrivateRoute>
-                  }
-                />
+                  <Route path="episodes">
+                    <Route
+                      index
+                      element={
+                        <ErrorBoundary>
+                          <Episodes />
+                        </ErrorBoundary>
+                      }
+                    />
+                    <Route
+                      path=":id"
+                      element={
+                        <PrivateRoute>
+                          <ErrorBoundary>
+                            <SingleEpisode />
+                          </ErrorBoundary>
+                        </PrivateRoute>
+                      }
+                    />
+                  </Route>
+                  <Route path="locations">
+                    <Route
+                      index
+                      element={
+                        <ErrorBoundary>
+                          <Locations />
+                        </ErrorBoundary>
+                      }
+                    />
+                    <Route
+                      path=":id"
+                      element={
+                        <PrivateRoute>
+                          <ErrorBoundary>
+                            <SingleLocation />
+                          </ErrorBoundary>
+                        </PrivateRoute>
+                      }
+                    />
+                  </Route>
+                </Route>
               </Route>
-              <Route path="locations">
-                <Route
-                  index
-                  element={
-                    <ErrorBoundary>
-                      <Locations />
-                    </ErrorBoundary>
-                  }
-                />
-                <Route
-                  path=":id"
-                  element={
-                    <PrivateRoute>
-                      <ErrorBoundary>
-                        <SingleLocation />
-                      </ErrorBoundary>
-                    </PrivateRoute>
-                  }
-                />
-              </Route>
+              <Route
+                path="*"
+                element={
+                  <Suspense fallback={<div>Loading...</div>}>
+                    <NotFound />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="login"
+                element={
+                  <Suspense fallback={<div>Loading...</div>}>
+                    <Login />
+                  </Suspense>
+                }
+              />
             </Route>
-            </Route>
-          <Route
-            path="*"
-            element={
-              <Suspense fallback={<div>Loading...</div>}>
-                <NotFound />
-              </Suspense>
-            }
-          />
-          <Route
-            path="login"
-            element={
-              <Suspense fallback={<div>Loading...</div>}>
-                <Login />
-              </Suspense>
-            }
-          />
-          </Route>
-        </Routes>
-      </AuthProvider>
-    </BrowserRouter>
+          </Routes>
+        </AuthProvider>
+      </BrowserRouter>
     </MantineProvider>
   );
 }

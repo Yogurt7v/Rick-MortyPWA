@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 const staticCacheName = "static-site-V1";
 const dynamicCacheName = "dynamic-site-V1";
 
@@ -8,48 +7,63 @@ const ASSETS = [
   "/src/index.css",
   "/src/App.css",
   "/app.js",
-  "/sw.js",
+  "/src/App.jsx",
+  "/src/main.jsx",
+  "/src/pages/Categories.jsx",
   "/src/assets/Rick_and_Morty.svg.png",
   "/src/assets/background.jpg",
-];
+]; 
 
-self.addEventListener("install", async (event) => {
+self.addEventListener("install", async () => {
   const cache = await caches.open(staticCacheName);
   await cache.addAll(ASSETS);
-});
+  console.log("### Installed service worker");
+}); // здесь всё правильно попадает в статичный кэш
 
-self.addEventListener("activate", async (event) => {
-  const cachesKeysArray = await caches.keys();
+self.addEventListener("activate", async () => {
+  console.log("### Activated service worker");
+  const cachesKeysArr = await caches.keys();
   await Promise.all(
-    cachesKeysArray
-      .filter((key) => key !== staticCacheName)
+    cachesKeysArr
+      .filter((key) => key !== staticCacheName && key !== dynamicCacheName)
       .map((key) => caches.delete(key))
   );
 });
 
 self.addEventListener("fetch", (event) => {
+    // event.respondWith(
+    //   caches.match(event.request).then((response) => {
+    //     return response || fetch(event.request).then((response) => {
+    //       return caches.open(dynamicCacheName).then((cache) => {
+    //         cache.put(event.request.url, response.clone())
+    //         return response;
+    //       });
+    //     });
+    //   })
+    // )
+
   event.respondWith(cacheFirst(event.request));
 });
 
 async function cacheFirst(request) {
-  const cache = await caches.open(request);
+  const cached = await caches.match(request);
   try {
-    return cache || (await fetch(request));
+    return cached ?? await fetch(request).then((response) => {
+      console.log("response", response)
+    return networkFirst(response)});
   } catch (e) {
-    console.log(e);
     return networkFirst(request);
   }
 }
 
 async function networkFirst(request) {
-  const cache = await caches.open(request);
+  const cache = await caches.open(dynamicCacheName);
   try {
-    const resp = await fetch(request);
-    await cache.put(request, resp.clone());
-    return resp;
+    const response = await fetch(request);
+    await cache.put(request, response.clone());
+    return response;
   } catch (e) {
-    console.log(e);
     const cached = await cache.match(request);
-    return cached ?? await caches.match("/");
+    return cached ?? (await caches.match("/index.html"));
   }
 }
