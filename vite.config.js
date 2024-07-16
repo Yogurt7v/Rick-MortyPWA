@@ -11,6 +11,7 @@ export default defineConfig({
         name: "rick-and-morty",
         short_name: "rick-and-morty",
         start_url: "/",
+        scope: "/",
         display: "standalone",
         background_color: "#ffffff",
         theme_color: "#000000",
