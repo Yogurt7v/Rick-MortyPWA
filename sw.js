@@ -19,7 +19,7 @@ self.addEventListener("install", async () => {
   const cache = await caches.open(staticCacheName);
   await cache.addAll(ASSETS);
   console.log("### Installed service worker");
-}); // здесь всё правильно попадает в статичный кэш
+}); 
 
 self.addEventListener("activate", async () => {
   console.log("### Activated service worker");

@@ -14,19 +14,14 @@ export function useFetch(url, pageNumber) {
       url: `${url}?page=${pageNumber}`,
     })
       .then((response) => {
-        setFetchResult((prevstate) => {
-          return [...new Set([...prevstate, ...response.data.results])];
-        })
-
+        setFetchResult((prevstate) => [...new Set([...prevstate, ...response.data.results])]);
+        setHasMore(response.data.info.pages > pageNumber);
         setLoading(false);
-        setHasMore(response.data.results.length > 0);
       })
       .catch((error) => {
         setError(error);
       });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [url, pageNumber]);
-
 
   return {
     loading,
