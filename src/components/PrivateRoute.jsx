@@ -1,5 +1,10 @@
 import { Navigate, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthProvider";
+import PropTypes from 'prop-types';
+
+PrivateRoute.propTypes = {
+  children: PropTypes.node,
+};
 
 export function PrivateRoute({ children }) {
   const auth = useAuth();

@@ -1,9 +1,5 @@
 {
   "projects": {
-    "default": "rick-and-morty-baac0",
-    "rick": "ricknewapp"
-  },
-  "targets": {},
-  "etags": {},
-  "dataconnectEmulatorConfig": {}
+    "default": "ricknewapp"
+  }
 }
