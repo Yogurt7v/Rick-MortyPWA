@@ -66,8 +66,9 @@ const SingleLocation = lazy(() =>
 
 function App() {
   return (
-      <BrowserRouter>
-        <AuthProvider>
+    <BrowserRouter>
+      <AuthProvider>
+        <ErrorBoundary>
           <Routes>
             <Route element={<MainLayout />}>
               <Route path="/" element={<NavMenu />}>
@@ -75,62 +76,35 @@ function App() {
                 <Route path="/categories">
                   <Route index element={<Categories />} />
                   <Route path="heroes">
-                    <Route
-                      index
-                      element={
-                        <ErrorBoundary>
-                          <Heroes />
-                        </ErrorBoundary>
-                      }
-                    />
+                    <Route index element={<Heroes />} />
                     <Route
                       path=":id"
                       element={
                         <PrivateRoute>
-                          <ErrorBoundary>
-                            <SingleHero />
-                          </ErrorBoundary>
+                          <SingleHero />
                         </PrivateRoute>
                       }
                     />
                   </Route>
 
                   <Route path="episodes">
-                    <Route
-                      index
-                      element={
-                        <ErrorBoundary>
-                          <Episodes />
-                        </ErrorBoundary>
-                      }
-                    />
+                    <Route index element={<Episodes />} />
                     <Route
                       path=":id"
                       element={
                         <PrivateRoute>
-                          <ErrorBoundary>
-                            <SingleEpisode />
-                          </ErrorBoundary>
+                          <SingleEpisode />
                         </PrivateRoute>
                       }
                     />
                   </Route>
                   <Route path="locations">
-                    <Route
-                      index
-                      element={
-                        <ErrorBoundary>
-                          <Locations />
-                        </ErrorBoundary>
-                      }
-                    />
+                    <Route index element={<Locations />} />
                     <Route
                       path=":id"
                       element={
                         <PrivateRoute>
-                          <ErrorBoundary>
-                            <SingleLocation />
-                          </ErrorBoundary>
+                          <SingleLocation />
                         </PrivateRoute>
                       }
                     />
@@ -155,9 +129,9 @@ function App() {
               />
             </Route>
           </Routes>
-        </AuthProvider>
-      </BrowserRouter>
-
+        </ErrorBoundary>
+      </AuthProvider>
+    </BrowserRouter>
   );
 }
 
