@@ -4,14 +4,7 @@ import react from "@vitejs/plugin-react-swc";
 // import manifest from "./manifest.json";
 
 export default defineConfig({
-  plugins: [
-    react(),
-    // VitePWA({
-    //   manifest,
-    //   workbox: {
-    //     sourcemap: true,
-    //   },
-    // }),
+  plugins: [react()
+    // , VitePWA(manifest)
   ],
 });
-

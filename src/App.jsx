@@ -2,7 +2,6 @@ import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { NavMenu } from "./components/Navmenu";
 import { AuthProvider } from "./context/AuthProvider";
-import ErrorBoundary from "./components/ErrorBoundary";
 import "./App.css";
 
 const Home = lazy(() =>
@@ -68,7 +67,7 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <ErrorBoundary>
+
           <Routes>
             <Route element={<MainLayout />}>
               <Route path="/" element={<NavMenu />}>
@@ -129,7 +128,6 @@ function App() {
               />
             </Route>
           </Routes>
-        </ErrorBoundary>
       </AuthProvider>
     </BrowserRouter>
   );
