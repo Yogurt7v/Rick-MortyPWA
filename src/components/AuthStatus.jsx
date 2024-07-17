@@ -1,6 +1,5 @@
 import { useAuth } from "../context/AuthProvider";
 import { NavLink, useNavigate } from "react-router-dom";
-import { Button } from "@mantine/core";
 
 export function AuthStatus() {
   const auth = useAuth();
@@ -13,9 +12,9 @@ export function AuthStatus() {
   if (auth.user === null)
     return (
       <div className="AuthStatus">
-        <Button variant="outline" color="lime">
+        <button >
           <NavLink to="login">Login, please</NavLink>
-        </Button>
+        </button>
       </div>
     );
   return (
@@ -23,9 +22,9 @@ export function AuthStatus() {
       <p>
         Hello, <strong>{auth.user.username}</strong>!
       </p>
-      <Button variant="outline" color="lime" onClick={handleLogout}>
+      <button  onClick={handleLogout}>
         Logout
-      </Button>
+      </button>
     </div>
   );
 }

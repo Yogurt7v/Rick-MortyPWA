@@ -3,8 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { NavMenu } from "./components/Navmenu";
 import { AuthProvider } from "./context/AuthProvider";
 import ErrorBoundary from "./components/ErrorBoundary";
-import "@mantine/core/styles.css";
-import { MantineProvider } from "@mantine/core";
 import "./App.css";
 
 const Home = lazy(() =>
@@ -68,7 +66,6 @@ const SingleLocation = lazy(() =>
 
 function App() {
   return (
-    <MantineProvider>
       <BrowserRouter>
         <AuthProvider>
           <Routes>
@@ -160,7 +157,7 @@ function App() {
           </Routes>
         </AuthProvider>
       </BrowserRouter>
-    </MantineProvider>
+
   );
 }
 

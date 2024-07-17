@@ -3,7 +3,6 @@ import { useSearchParams } from "react-router-dom";
 import { useEffect, useState, useRef, useCallback } from "react";
 import { sort } from "../utils/sort";
 import { useFetch } from "../hooks/useFetch";
-import { Button } from "@mantine/core";
 
 export function Episodes() {
   const [, setSortParams] = useSearchParams();
@@ -55,8 +54,8 @@ export function Episodes() {
   return (
     <>
       <div className="button__wrapper">
-        <Button color="lime" size="lg"  onClick={() => handleSort("ASC")}>по возрастанию</Button>
-        <Button color="lime" size="lg" onClick={() => handleSort("DESC")}>по убыванию</Button>
+        <button  onClick={() => handleSort("ASC")}>по возрастанию</button>
+        <button  onClick={() => handleSort("DESC")}>по убыванию</button>
       </div>
       <div className="container__content">
         {episodes.map((item, index) => {

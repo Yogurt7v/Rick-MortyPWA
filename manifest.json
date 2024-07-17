@@ -18,12 +18,13 @@
         "src": "./icons144.png",
         "type": "image/png",
         "sizes": "144x144",
-        "purpose": "maskable"
+        "purpose": "any"
       },
       {
         "src": "./icons192.png",
         "type": "image/png",
-        "sizes": "192x192"
+        "sizes": "192x192",
+        "purpose": "maskable"
       },
       {
         "src": "./icons512.png",

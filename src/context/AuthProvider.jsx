@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 import PropTypes from 'prop-types';
 
 const AuthContext = createContext(null);
@@ -6,13 +6,19 @@ AuthProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-// eslint-disable-next-line react-refresh/only-export-components
 export function useAuth() {
   return useContext(AuthContext);
 }
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(()=> JSON.parse(localStorage.getItem("user")));
+  const [user, setUser] = useState(null);
+  const [value, setValue] = useState({});
+
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem("user")))
+  }, [])
+
+  console.log("user", user);
 
   const login = (newUser, callback) => {
     setUser(newUser);
@@ -25,10 +31,11 @@ export function AuthProvider({ children }) {
     localStorage.removeItem("user");
   };
 
-  const value = {
-    user,
-    login,
-    logout,
-  };
+  setValue({ user, login, logout });
+  // const value = {
+  //   user,
+  //   login,
+  //   logout,
+  // };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

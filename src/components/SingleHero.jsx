@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import { useSingleData } from "../hooks/useSingleData";
-import { Button } from "@mantine/core";
 
 export function SingleHero() {
   const navigate = useNavigate();
@@ -21,7 +20,7 @@ export function SingleHero() {
       </div>
       <p>Created: {result.created}</p>
       <div className="button__wrapper">
-        <Button color="lime" size="md" onClick={() => navigate("/categories/heroes")}>Back</Button>
+        <button onClick={() => navigate("/categories/heroes")}>Back</button>
       </div>
     </div>
   );

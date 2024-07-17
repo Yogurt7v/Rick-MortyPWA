@@ -1,7 +1,6 @@
 import { useState, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthProvider";
-import { Button, TextInput } from '@mantine/core';
 
 
 export function Login() {
@@ -30,13 +29,13 @@ export function Login() {
       >
         <label>
           Username:
-          <TextInput type="text" name="username" />
+          <input type="text" name="username" />
         </label>
         <label>
           Password:
-          <TextInput type="password" name="password" />
+          <input type="password" name="password" />
         </label>
-        <Button color="lime" size="lg" type="submit">Войти</Button>
+        <button type="submit">Войти</button>
       </form>
     </div>
   );
