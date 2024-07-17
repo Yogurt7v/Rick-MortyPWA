@@ -1,28 +1,26 @@
-import { Component } from "react";
+import { Component } from "react"
 
-export class ErrorBoundary extends Component {
+class ErrorBoundary extends Component {
   constructor(props) {
     super(props);
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError() {
+  static getDerivedStateFromError(error) {
+    console.log("##### getDerivedStateFromError", error);
     return { hasError: true };
   }
 
   componentDidCatch(error, errorInfo) {
-    console.error("ErrorBoundary error:", error, errorInfo);
-    this.setState({ hasError: true });
+    console.error("Error by ErrorBoundary:", error);
+    console.error("ErrorInfo caught by ErrorBoundary:", errorInfo);
   }
 
   render() {
     if (this.state.hasError) {
-      return (
-        <div className="error__wrapper">
-          <h1>Something went wrong</h1>
-        </div>
-      );
+      return <h1>Something went wrong.</h1>;
     }
+
     // eslint-disable-next-line react/prop-types
     return this.props.children;
   }

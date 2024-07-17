@@ -1,20 +1,10 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export function NotFound() {
-
-    const navigate = useNavigate();
-
-    useEffect (()=>{
-        setTimeout (() => {
-            navigate("/")
-        }, 2000)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
-
-    return (
-        <div className="card__wrapper">
-            <h1>Page Not Found</h1>
-        </div>
-    );
+  return (
+    <div className="card__wrapper">
+      <h1>Page Not Found</h1>
+      <NavLink to="/">Go Back</NavLink>
+    </div>
+  );
 }
