@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { sort } from "../utils/sort";
 import { useFetch } from "../hooks/useFetch";
+import { Button } from "@mui/material";
 
 export function Locations() {
   const [, setSortParams] = useSearchParams();
@@ -54,8 +55,8 @@ export function Locations() {
   return (
     <>
       <div className="button__wrapper">
-        <button onClick={() => handleSort("ASC")}>по возрастанию</button>
-        <button onClick={() => handleSort("DESC")}>по убыванию</button>
+        <Button onClick={() => handleSort("ASC")} variant="contained" color="success">по возрастанию</Button>
+        <Button onClick={() => handleSort("DESC")} variant="contained" color="success">по убыванию</Button>
       </div>
       <div className="container__content">
         {locations.map((item, index) => {

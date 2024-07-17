@@ -12,9 +12,9 @@ const ASSETS = [
   "/error.html",
   "/src/pages/Categories.jsx",
   "/src/pages/Home.jsx",
-  // "/src/pages/Locations.jsx",
-  // "/src/pages/Episodes.jsx",
-  // "/src/pages/Heroes.jsx",
+  "/src/pages/Locations.jsx",
+  "/src/pages/Episodes.jsx",
+  "/src/pages/Heroes.jsx",
   "/src/assets/Rick_and_Morty.svg.png",
   "/src/assets/background.jpg",
 ];

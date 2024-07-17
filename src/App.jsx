@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { NavMenu } from "./components/Navmenu";
 import { AuthProvider } from "./context/AuthProvider";
+import ErrorBoundary from "./components/ErrorBoundary";
 import "./App.css";
 
 const Home = lazy(() =>
@@ -67,13 +68,13 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-
-          <Routes>
-            <Route element={<MainLayout />}>
-              <Route path="/" element={<NavMenu />}>
-                <Route index element={<Home />} />
+        <Routes>
+          <Route element={<MainLayout />}>
+            <Route path="/" element={<NavMenu />}>
+              <Route index element={<Home />} />
+     
                 <Route path="/categories">
-                  <Route index element={<Categories />} />
+                  <Route index element={<ErrorBoundary><Categories /></ErrorBoundary>} />
                   <Route path="heroes">
                     <Route index element={<Heroes />} />
                     <Route
@@ -109,25 +110,25 @@ function App() {
                     />
                   </Route>
                 </Route>
-              </Route>
-              <Route
-                path="*"
-                element={
-                  <Suspense fallback={<div>Loading...</div>}>
-                    <NotFound />
-                  </Suspense>
-                }
-              />
-              <Route
-                path="login"
-                element={
-                  <Suspense fallback={<div>Loading...</div>}>
-                    <Login />
-                  </Suspense>
-                }
-              />
             </Route>
-          </Routes>
+            <Route
+              path="*"
+              element={
+                <Suspense fallback={<div>Loading...</div>}>
+                  <NotFound />
+                </Suspense>
+              }
+            />
+            <Route
+              path="login"
+              element={
+                <Suspense fallback={<div>Loading...</div>}>
+                  <Login />
+                </Suspense>
+              }
+            />
+          </Route>
+        </Routes>
       </AuthProvider>
     </BrowserRouter>
   );

@@ -4,7 +4,10 @@ import react from "@vitejs/plugin-react-swc";
 // import manifest from "./manifest.json";
 
 export default defineConfig({
-  plugins: [react()
-    // , VitePWA(manifest)
-  ],
+  plugins: [react()],
+  build: {
+    outDir: 'dist'
+  }
+  
 });
+

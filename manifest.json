@@ -1,16 +1,15 @@
 {
     "name": "rick-and-morty",
     "short_name": "rick-and-morty",
-    "start_url": "/",
+    "start_url": "./",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#000000",
     "orientation": "portrait",
     "description": "rick-and-morty",
-
     "icons": [
       {
-        "src": "./144.png",
+        "src": "./logo.png",
         "type": "image/png",
         "sizes": "144x144",
         "purpose": "any"

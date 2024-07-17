@@ -1,18 +1,19 @@
 import { NavLink } from "react-router-dom";
 
+
 export function Categories() {
   return (
     <div className="category">
       <h1>Categories Page</h1>
       <ol>
         <li>
-          <NavLink to="/categories/heroes">Heroes</NavLink>
+            <NavLink to="/categories/heroes">Heroes</NavLink>
         </li>
         <li>
-          <NavLink to="/categories/locations">Locations</NavLink>
+            <NavLink to="/categories/locations">Locations</NavLink>
         </li>
         <li>
-          <NavLink to="/categories/episodes">Episodes</NavLink>
+            <NavLink to="/categories/episodes">Episodes</NavLink>
         </li>
       </ol>
     </div>

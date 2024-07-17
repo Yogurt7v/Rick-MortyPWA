@@ -1,5 +1,6 @@
 import { useAuth } from "../context/AuthProvider";
-import { NavLink, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
+import Button from "@mui/material/Button";
 
 export function AuthStatus() {
   const auth = useAuth();
@@ -11,10 +12,9 @@ export function AuthStatus() {
 
   if (auth.user === null)
     return (
-      <div className="AuthStatus">
-        <button >
-          <NavLink to="login">Login, please</NavLink>
-        </button>
+      <div className="AuthStatus" >
+        <Button variant="contained" onClick={() => navigate("login")} color="success" size="small">Login, please
+        </Button>
       </div>
     );
   return (
@@ -22,9 +22,9 @@ export function AuthStatus() {
       <p>
         Hello, <strong>{auth.user.username}</strong>!
       </p>
-      <button  onClick={handleLogout}>
+      <Button  onClick={handleLogout} variant="outlined" color="success" size="small">
         Logout
-      </button>
+      </Button>
     </div>
   );
 }

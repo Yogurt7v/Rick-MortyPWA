@@ -1,7 +1,8 @@
 import { useState, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthProvider";
-
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
 
 export function Login() {
   const location = useLocation();
@@ -27,15 +28,22 @@ export function Login() {
           setUser({ ...user, [e.target.name]: e.target.value });
         }}
       >
-        <label>
-          Username:
-          <input type="text" name="username" />
-        </label>
-        <label>
-          Password:
-          <input type="password" name="password" />
-        </label>
-        <button type="submit">Войти</button>
+        <TextField
+          id="filled-basic"
+          label="UserName"
+          variant="filled"
+          color="success"
+          name="username"
+        />
+        <TextField
+          id="filled-basic"
+          label="Password"
+          variant="filled"
+          color="success"
+        />
+        <Button type="submit" variant="contained" color="success">
+          Войти
+        </Button>
       </form>
     </div>
   );

@@ -2,6 +2,7 @@ import { NavLink, useSearchParams } from "react-router-dom";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { sort } from "../utils/sort";
 import { useFetch } from "../hooks/useFetch";
+import  {Button}  from "@mui/material";
 
 export function Heroes() {
   const [, setSortParams] = useSearchParams();
@@ -52,8 +53,8 @@ export function Heroes() {
   return (
     <>
       <div className="button__wrapper">
-        <button onClick={() => handleSort("ASC")}>по возрастанию</button>
-        <button onClick={() => handleSort("DESC")}>по убыванию</button>
+        <Button onClick={() => handleSort("ASC")} color="success" variant="contained">по возрастанию</Button>
+        <Button onClick={() => handleSort("DESC")} color="success" variant="contained">по убыванию</Button>
       </div>
       <div className="container__content">
         {heroes?.map((item, index) => {

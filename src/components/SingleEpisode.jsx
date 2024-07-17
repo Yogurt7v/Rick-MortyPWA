@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useSingleData } from "../hooks/useSingleData";
+import { Button } from "@mui/material";
 
 export function SingleEpisode() {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ export function SingleEpisode() {
       <h2>Episode: {result.episode}</h2>
       <h3>Created: {result.created}</h3>
       <div className="button__wrapper">
-        <button onClick={() => navigate("/categories/episodes")}>Back</button>
+        <Button onClick={() => navigate("/categories/episodes")} variant="text" color="success">Back</Button>
       </div>
     </div>
   );

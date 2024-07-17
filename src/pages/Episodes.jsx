@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { useEffect, useState, useRef, useCallback } from "react";
 import { sort } from "../utils/sort";
 import { useFetch } from "../hooks/useFetch";
+import { Button } from "@mui/material";
 
 export function Episodes() {
   const [, setSortParams] = useSearchParams();
@@ -54,8 +55,8 @@ export function Episodes() {
   return (
     <>
       <div className="button__wrapper">
-        <button  onClick={() => handleSort("ASC")}>по возрастанию</button>
-        <button  onClick={() => handleSort("DESC")}>по убыванию</button>
+        <Button  onClick={() => handleSort("ASC")} color="success" variant="contained">по возрастанию</Button>
+        <Button  onClick={() => handleSort("DESC")} color="success" variant="contained">по убыванию</Button>
       </div>
       <div className="container__content">
         {episodes.map((item, index) => {
@@ -81,7 +82,7 @@ export function Episodes() {
                     to={`/categories/episodes/${item.id}`}
                   >
                     <h2>{item?.name}</h2>
-                  </NavLink>
+                  </NavLink> 
                 </div>
               </div>
             );
