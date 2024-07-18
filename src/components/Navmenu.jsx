@@ -16,11 +16,9 @@ export function NavMenu() {
       <Header />
       <Suspense fallback={<div>Loading...</div>}>
         <AuthStatus />
-
-        <div className="nav">
-          <Button
+          <div className="nav">
+          <Button 
             variant="contained"
-            sx={{ mr: 2 }}
             color="success"
             onClick={() => navigate("/categories")}
           >
@@ -57,7 +55,7 @@ export function NavMenu() {
               </li>
             </ul>
           </nav>
-        </div>
+          </div>
         <Outlet />
       </Suspense>
     </>
