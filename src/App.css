@@ -33,7 +33,9 @@ ul {
   list-style: none;
   display: flex;
   gap: 15px;
+
 }
+
 
 .items {
   display: flex;
